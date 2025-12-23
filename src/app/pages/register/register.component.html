@@ -1,0 +1,23 @@
+<div class="auth-container">
+  <h2>Create Account</h2>
+
+  @if (error) {
+    <p class="error">{{ error }}</p>
+  }
+
+  @if (message) {
+    <p class="success">{{ message }}</p>
+  }
+
+  <label>Email</label>
+  <input [(ngModel)]="email" />
+
+  <label>Password</label>
+  <input type="password" [(ngModel)]="password" />
+
+  <button (click)="submit()">Create Account</button>
+
+  <div class="auth-footer">
+    <a routerLink="/login">Back to login</a>
+  </div>
+</div>

@@ -1,0 +1,121 @@
+<div class="page">
+  <div class="dashboard-header">
+    <h2>SafeShare</h2>
+    <button class="btn-danger logout-btn" (click)="logout()">Logout</button>
+  </div>
+
+  <hr />
+  <div class="share-options">
+    <label>
+      <input type="checkbox" [(ngModel)]="oneTime" />
+      One-Time Link
+    </label>
+
+    <label style="margin-left: 20px">
+      <input type="checkbox" [(ngModel)]="showPassword" />
+      Protect with password
+    </label>
+  </div>
+
+  @if (showPassword) {
+    <div class="share-password">
+      <input
+        type="password"
+        [(ngModel)]="sharePassword"
+        placeholder="Enter share password"
+      />
+    </div>
+  }
+
+
+  <div class="section">
+    <h3>Upload Document</h3>
+    @if (successMessage) {
+      <p class="success">{{ successMessage }}</p>
+    }
+
+    @if (error) {
+      <p class="error">{{ error }}</p>
+    }
+    <!-- content -->
+  </div>
+  <div class="upload-box">
+    <input
+      type="file"
+      #fileInput
+      (change)="onFileChange($event)" />
+    <button class="btn-primary upload-btn" (click)="upload()">Upload</button>
+  </div>
+
+  <hr />
+
+  <h3>Your Documents</h3>
+
+  <table>
+    <tr>
+      <th>File</th>
+      <th>Actions</th>
+    </tr>
+
+    <tr *ngFor="let d of documents">
+      <td>{{ d.fileName }}</td>
+      <td>
+        <div class="action-buttons">
+          <button class="btn-primary" (click)="download(d)">Download</button>
+          <button class="btn-secondary" (click)="share(d.id)">Share</button>
+
+          @if (shareTypeMap[d.id] === 'ONE_TIME') {
+            <span class="badge one-time">One-Time Link</span>
+          }
+
+          <button
+            class="btn-secondary"
+            [disabled]="!shareMap[d.id]"
+            (click)="viewLogs(shareMap[d.id])">
+            Logs
+          </button>
+
+          <button class="btn-danger" (click)="confirmDelete(d.id)">Delete</button>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  @if (shareUrl) {
+    <div class="share-box">
+      <input [value]="shareUrl" readonly />
+      <button class="btn-primary" (click)="copyShareUrl()">Copy</button>
+      <button class="btn-secondary" (click)="clearShareUrl()">Clear</button>
+    </div>
+  }
+
+  @if (showLogs) {
+    <div class="logs-box">
+      <h3>Access Logs</h3>
+
+      <table>
+        <tr>
+          <th>IP Address</th>
+          <th>Browser</th>
+          <th>Access Time</th>
+        </tr>
+
+        <tr *ngFor="let l of logs">
+          <td>{{ l.ipAddress }}</td>
+          <td>{{ l.userAgent }}</td>
+          <td>{{ l.accessedAt }}</td>
+        </tr>
+      </table>
+
+      <button class="btn-secondary" (click)="closeLogs()">Close</button>
+    </div>
+  }
+  @if (documents.length === 0) {
+    <tr>
+      <td colspan="2" style="text-align:center; padding:20px; color:#6b7280;">
+        No documents uploaded yet.
+      </td>
+    </tr>
+  }
+
+</div>

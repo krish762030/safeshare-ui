@@ -1,1 +1,216 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global reset */
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #f5f7fb;
+}
+
+/* Page container */
+.page {
+  max-width: 800px;
+  margin: 40px auto;
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Headings */
+h2 {
+  margin-top: 0;
+  color: #333;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  width: 100%;
+  padding: 10px 12px;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 1px #2563eb;
+}
+
+/* Labels */
+label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+}
+
+/* Dashboard header */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.upload-box {
+  display: flex;
+  gap: 10px;
+}
+
+.primary-btn {
+  padding: 8px 14px;
+  font-size: 14px;
+}
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+.share-box {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.secondary-btn {
+  background: #64748b;
+}
+
+.secondary-btn:hover {
+  background: #475569;
+}
+
+/* Logout button */
+.logout-btn {
+  background: #dc2626;
+  padding: 6px 12px;
+  font-size: 13px;
+  border-radius: 4px;
+}
+
+.logout-btn:hover {
+  background: #b91c1c;
+}
+
+/* Buttons */
+button {
+  padding: 10px 14px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1e40af;
+}
+
+/* Button variants */
+.btn-primary {
+  background: #2563eb;
+}
+
+.btn-secondary {
+  background: #64748b;
+}
+
+.btn-secondary:hover {
+  background: #475569;
+}
+
+.btn-danger {
+  background: #dc2626;
+}
+
+.btn-danger:hover {
+  background: #b91c1c;
+}
+
+.btn-full {
+  width: 20%;
+  padding: 6px 12px;
+  font-size: 13px;
+  border-radius: 4px;
+}
+
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  text-align: left;
+  background: #f1f5f9;
+}
+
+td,
+th {
+  padding: 10px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Links */
+a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Messages */
+.error {
+  color: #dc2626;
+}
+
+.success {
+  color: #16a34a;
+}
+
+
+/* Auth pages (login / register) */
+.auth-container {
+  max-width: 420px;
+  margin: 80px auto;
+  padding: 28px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.auth-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.auth-container label {
+  font-size: 14px;
+  color: #374151;
+}
+
+.auth-container input {
+  margin-top: 4px;
+}
+
+.auth-container button {
+  width: 100%;
+  margin-top: 12px;
+}
+
+.auth-footer {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 14px;
+}

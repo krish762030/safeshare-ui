@@ -1,0 +1,22 @@
+<div class="auth-container">
+  <h2>Welcome to SafeShare</h2>
+  <p style="text-align:center; color:#6b7280; font-size:14px;">
+    Secure document sharing made simple
+  </p>
+
+  @if (error) {
+    <p class="error">{{ error }}</p>
+  }
+
+  <label for="email">Email</label>
+  <input id="email" type="email" [(ngModel)]="email" />
+
+  <label for="password">Password</label>
+  <input id="password" type="password" [(ngModel)]="password" />
+
+  <button (click)="submit()">Login</button>
+
+  <div class="auth-footer">
+    <a routerLink="/register">Create account</a>
+  </div>
+</div>
