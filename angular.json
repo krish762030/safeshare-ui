@@ -27,7 +27,7 @@
               {
                 "glob": "**/*",
                 "input": "src/public",
-                "output": "/"
+                "output": "."
               }
             ],
             "styles": [
@@ -91,7 +91,7 @@
               {
                 "glob": "**/*",
                 "input": "src/public",
-                "output": "/"
+                "output": "."
               }
             ],
             "styles": [
